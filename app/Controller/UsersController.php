@@ -8,17 +8,7 @@ class UsersController extends AppController {
     }                
     
     public function index() {          
-    }
-    
-    public function isAuthorized($user) {                        
-        if ($user['role'] == 'user'){
-            if ($this->action == 'profile' && $user['id'] != $this->request->params['pass'][0]){
-                return false;
-            }
-            return true;
-        }
-        return parent::isAuthorized($user);
-    }
+    }        
     
     public function login() {        
         if ($this->request->is('post')) {
@@ -50,7 +40,27 @@ class UsersController extends AppController {
     }
     
     public function profile() {
+        $u = $this->Auth->user();
+        $user = $this->User->findById($u['id']);                         
+                
+        if ($this->request->is('post') || $this->request->is('put')) {            
+            if (empty($this->request->data['User']['new_password'])) {                
+                $this->request->data['User']['password'] = $user['User']['password'];                
+            } else {                
+                $this->request->data['User']['password'] = $this->request->data['User']['new_password'];
+            }            
+            $this->User->id = $u['id'];
+            
+            if ($this->User->save($this->request->data)) {
+                $this->Session->setFlash(__('Dane zostały zmienione'));                
+            } else {
+                $this->Session->setFlash(__('Dane nie zostały zmienione'));                
+            }
+        }                
         
+        if (!$this->request->data) {
+            $this->request->data = $user;
+        }
     }
 }
 

@@ -1,28 +1,28 @@
 <?php if (!empty($user['username'])): ?>
 <?php echo $this->Html->link($user['username'],
-        array('controller' => 'users', 'action' => 'profile', $user['id']),
+        array('controller' => 'users', 'action' => 'profile'),
         array('class' => 'button')); 
 ?>
 
-<?php echo $this->Html->link('Logout', 
+<?php echo $this->Html->link('Wyloguj', 
         array('controller' => 'users', 'action' => 'logout'),
         array('class' => 'button')); 
 ?>
 <?php endif; ?>
 
 <?php if (empty($user['username'])): ?>
-<?php echo $this->Html->link('Login',
+<?php echo $this->Html->link('Zaloguj',
         array('controller' => 'users', 'action' => 'login'),
         array('class' => 'button')); 
 ?>
 
-<?php echo $this->Html->link('Register', 
+<?php echo $this->Html->link('Zarejestruj', 
         array('controller' => 'users', 'action' => 'register'),
         array('class' => 'button')); 
 ?>
 <?php endif; ?>
 
-<?php echo $this->Html->link('Songs', 
+<?php echo $this->Html->link('Piosenki', 
         array('controller' => 'songs', 'action' => 'index'),
         array('class' => 'button')); 
 ?>

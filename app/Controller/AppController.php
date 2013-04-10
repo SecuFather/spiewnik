@@ -49,12 +49,13 @@ class AppController extends Controller {
         parent::beforeRender();
         
         $user = $this->Auth->user();        
-        $this->set('user', $user);
+        $this->set(compact('user'));
     }        
     
     public function isAuthorized($user) {            
         if ($user['role'] == 'admin') {
             return true;
         }
+        return true;
     }
 }
