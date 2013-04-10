@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine    on
+    RewriteBase     /~ziomq1991/www/cake/spiewnik/
+    RewriteRule      ^$ app/webroot/    [L]
+    RewriteRule      (.*) app/webroot/$1 [L]
+</IfModule>
