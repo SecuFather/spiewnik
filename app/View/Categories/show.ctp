@@ -1,13 +1,15 @@
-<h2>Piosenki</h2>
+<h2><?php echo $cat['Category']['name']; ?></h2>
+
+<h3>Opis:</h3>
+<p><?php echo $cat['Category']['about']; ?></p>
+
+<h3>Piosenki:</h3>
 <ul>
 <?php foreach($songs as $song): ?>
 
     <li>
         <?php echo $this->Html->link($song['Song']['title'],
                 array('controller' => 'songs', 'action' => 'show', $song['Song']['id']))
-        ?> - 
-        <?php echo $this->Html->link($song['Category']['name'],
-                array('controller' => 'categories', 'action' => 'show', $song['Category']['id']))
         ?>
     </li>
     

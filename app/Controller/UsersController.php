@@ -23,16 +23,16 @@ class UsersController extends AppController {
     public function login() {        
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
-                $this->Session->setFlash(__('You are logged in.'));
+                $this->Session->setFlash(__('Logowanie przebiegło pomyślnie'));
                 $this->redirect($this->Auth->redirect());
             } else {
-                $this->Session->setFlash(__('Invalid username or password'));
+                $this->Session->setFlash(__('Nieprawidłowa nazwa użytkownika lub hasło'));
             }
         }
     }
     
     public function logout() {        
-        $this->Session->setFlash(__('You are already logged out'));
+        $this->Session->setFlash(__('Wylogowywanie przebiegło pomyślnie'));
         $this->redirect($this->Auth->logout());
     }        
     
@@ -41,10 +41,10 @@ class UsersController extends AppController {
             $this->User->create();
             
             if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('Your account has been created.'));
+                $this->Session->setFlash(__('Konto zostało utworzone'));
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('Unable to create account.'));
+                $this->Session->setFlash(__('Konto nie zostało utworzone'));
             }
         }
     }

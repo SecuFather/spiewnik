@@ -10,7 +10,7 @@ class User extends AppModel {
             'rule' => array('notEmpty'),
             'message' => array('Password is required')
         )        
-    );
+    );        
     
     public function beforeSave($options = array()) {
         parent::beforeSave($options);
