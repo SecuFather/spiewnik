@@ -26,5 +26,10 @@
         array('controller' => 'songs', 'action' => 'index'),
         array('class' => 'button')); 
 ?>
+
+<?php echo $this->Html->link('Kategorie', 
+        array('controller' => 'categories', 'action' => 'index'),
+        array('class' => 'button')); 
+?>
 <br/><br/>
 <hr/>

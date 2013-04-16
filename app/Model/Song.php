@@ -1,7 +1,11 @@
 <?php
 
 class Song extends AppModel {
-    public $belongsTo = 'Category';
+    public $belongsTo = array(
+        'Category' => array(            
+            'fields' => array('id', 'name')
+        )
+    );
 }
 
 ?>
