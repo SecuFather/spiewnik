@@ -27,8 +27,18 @@
         array('class' => 'button')); 
 ?>
 
+<?php echo $this->Html->link('Dodaj Piosenkę', 
+        array('controller' => 'songs', 'action' => 'add'),
+        array('class' => 'button')); 
+?>
+
 <?php echo $this->Html->link('Kategorie', 
         array('controller' => 'categories', 'action' => 'index'),
+        array('class' => 'button')); 
+?>
+
+<?php echo $this->Html->link('Dodaj Kategorie', 
+        array('controller' => 'categories', 'action' => 'add'),
         array('class' => 'button')); 
 ?>
 <br/><br/>

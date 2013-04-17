@@ -1,3 +1,12 @@
+<?php echo $this->Html->link('edytuj', 
+        array('action' => 'edit', $song['Song']['id']));
+?>
+
+<?php echo $this->Form->postLink('usuń', 
+        array('action' => 'delete', $song['Song']['id']),
+        array('confirm' => 'Na pewno?'));
+?>
+
 <h2>
     <?php echo $song['Song']['title']; ?> - 
     <?php echo $this->Html->link($song['Category']['name'], 
